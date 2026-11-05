@@ -3,6 +3,7 @@ class_name SurvivorsEntity extends CharacterBody2D
 @export var max_health: float = 10.0
 @export var damage: float = 1.0
 var current_health: float
+var dead: bool = false
 
 # ---REPLACE---
 # Add a custom signal for getting hurt!
@@ -19,6 +20,7 @@ func set_stats(stats_resource: EnemyStats) -> void:
 	damage = stats_resource.damage
 
 func take_damage(amount: float) -> void:
+	if dead: return
 	current_health -= amount
 	# ---REPLACE---
 	# Emit a custom signal here for getting hurt!
@@ -28,9 +30,13 @@ func take_damage(amount: float) -> void:
 
 func die() -> void:
 	on_death.emit()
+	dead = true
+
+func destroy() -> void:
 	queue_free()
 
 func _physics_process(_delta: float) -> void:
+	if dead: return
 	var move_direction := get_move_direction()
 	
 	if move_direction.x != 0:
@@ -49,5 +55,6 @@ func get_move_direction() -> Vector2:
 	return Vector2.ZERO
 
 func attack(entity: SurvivorsEntity) -> void:
+	if dead: return
 	print("ouch!")
 	entity.take_damage(damage)

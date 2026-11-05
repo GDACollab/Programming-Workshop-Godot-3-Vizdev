@@ -3,6 +3,10 @@
 [ext_resource type="Script" uid="uid://de2ms5isuno5b" path="res://Scripts/bodies/bodies_player.gd" id="1_rte3u"]
 [ext_resource type="Script" uid="uid://c2h5gmwtjrcn0" path="res://Scripts/bodies/goal.gd" id="1_yr0rb"]
 
+[sub_resource type="Environment" id="Environment_l16ms"]
+ambient_light_source = 1
+ambient_light_energy = 0.0
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_l16ms"]
 size = Vector3(15, 1.847, 10)
 
@@ -41,6 +45,9 @@ height = 1.0
 height = 1.0
 
 [node name="Bodies" type="Node3D" unique_id=1994731926]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=979021136]
+environment = SubResource("Environment_l16ms")
 
 [node name="BouncingBallDemo" type="Node3D" parent="." unique_id=1599783364]
 
@@ -130,9 +137,6 @@ shape = SubResource("BoxShape3D_uuy4b")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="BouncingBallDemo/Goal" unique_id=810925535]
 mesh = SubResource("BoxMesh_uuy4b")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=158281696]
-transform = Transform3D(1, 0, 0, 0, 0.47180453, 0.8817032, 0, -0.8817032, 0.47180453, 0, 1.7585849, 0.3829584)
-
 [node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1864291634 node_paths=PackedStringArray("camera_holder")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.791, 1.221, 0)
 axis_lock_angular_x = true
@@ -150,5 +154,15 @@ shape = SubResource("CapsuleShape3D_l16ms")
 
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D/CameraHolder" unique_id=1272397794]
 transform = Transform3D(1, 0, 0, 0, 0.7749445, 0.6320293, 0, -0.6320293, 0.7749445, 0, 1.2208865, 1.207238)
+
+[node name="Lights" type="Node3D" parent="." unique_id=1049351459]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights" unique_id=1328549436]
+
+[node name="AreaLight3D" type="AreaLight3D" parent="Lights" unique_id=195277815]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Lights" unique_id=355639167]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights" unique_id=262009078]
 
 [connection signal="body_entered" from="BouncingBallDemo/Goal" to="BouncingBallDemo/Goal" method="_on_body_entered"]
