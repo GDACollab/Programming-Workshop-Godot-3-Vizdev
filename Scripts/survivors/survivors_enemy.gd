@@ -7,3 +7,7 @@ func get_move_direction() -> Vector2:
 	var to_player = player_position - global_position
 	var direction = to_player.normalized()
 	return direction
+
+func die() -> void:
+	super.die()
+	GameManager.increment_score()
