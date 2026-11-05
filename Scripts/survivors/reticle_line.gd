@@ -2,7 +2,7 @@ class_name ReticleLine extends Node2D
 @export var line: Line2D
 @export var raycast: RayCast2D
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	line.clear_points()
 	
 	var mouse_position: Vector2 = get_viewport().get_mouse_position()

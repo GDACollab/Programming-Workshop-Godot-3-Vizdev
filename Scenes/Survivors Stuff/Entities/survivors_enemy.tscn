@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://dd76eovxe20p6"]
+
+[ext_resource type="Script" uid="uid://dpq7riu4hd5f0" path="res://Scripts/survivors/survivors_enemy.gd" id="1_oxrid"]
+[ext_resource type="Texture2D" uid="uid://pbi7t65mv06a" path="res://icon.svg" id="2_gqi4b"]
+[ext_resource type="Script" uid="uid://bssgy0af4v7mu" path="res://Scripts/survivors/damage_number_spawner.gd" id="3_s6072"]
+[ext_resource type="Script" uid="uid://bl6jyyvmtlni4" path="res://Scripts/survivors/damage_particles_spawner.gd" id="4_p1a3o"]
+[ext_resource type="Script" uid="uid://sbg3taiaobwf" path="res://Scripts/survivors/entity_animation_player.gd" id="5_gqi4b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j5p33"]
+size = Vector2(60, 60)
+
+[sub_resource type="Animation" id="Animation_oxrid"]
+resource_name = "die"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EntityAnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"death_anim_finished"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gqi4b"]
+_data = {
+&"die": SubResource("Animation_oxrid")
+}
+
+[node name="SurvivorsEnemy" type="CharacterBody2D" unique_id=2015223636]
+collision_layer = 5
+script = ExtResource("1_oxrid")
+move_speed = 100.0
+
+[node name="SurvivorsHurtbox" type="CollisionShape2D" parent="." unique_id=842583744]
+shape = SubResource("RectangleShape2D_j5p33")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=611832980]
+modulate = Color(1, 0.5411765, 0.58431375, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_gqi4b")
+
+[node name="DamageNumberSpawner" type="Node2D" parent="." unique_id=316284081 node_paths=PackedStringArray("entity")]
+script = ExtResource("3_s6072")
+entity = NodePath("..")
+metadata/_custom_type_script = "uid://bssgy0af4v7mu"
+
+[node name="DamageParticlesSpawner" type="Node2D" parent="." unique_id=629639472 node_paths=PackedStringArray("entity")]
+script = ExtResource("4_p1a3o")
+entity = NodePath("..")
+metadata/_custom_type_script = "uid://bl6jyyvmtlni4"
+
+[node name="EntityAnimationPlayer" type="AnimationPlayer" parent="." unique_id=884665293 node_paths=PackedStringArray("entity")]
+libraries/ = SubResource("AnimationLibrary_gqi4b")
+script = ExtResource("5_gqi4b")
+entity = NodePath("..")

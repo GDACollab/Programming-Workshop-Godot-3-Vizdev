@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b0w11dssmey6v"]
+
+[ext_resource type="Script" uid="uid://bl6jyyvmtlni4" path="res://Scripts/survivors/damage_particles_spawner.gd" id="1_nsta7"]
+
+[node name="DamageParticlesSpawner" type="Node2D" unique_id=1014852624]
+script = ExtResource("1_nsta7")
