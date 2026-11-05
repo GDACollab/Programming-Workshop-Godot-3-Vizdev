@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dq4gj5r41f7uc" path="res://Scripts/survivors/enemy_stats_resource.gd" id="1_lvjxo"]
 
-
 [resource]
 script = ExtResource("1_lvjxo")
+move_speed = 100.0
 metadata/_custom_type_script = "uid://dq4gj5r41f7uc"

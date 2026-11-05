@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bes28m035pj3t"]
+
+[ext_resource type="Texture2D" uid="uid://pbi7t65mv06a" path="res://icon.svg" id="1_q3aj4"]
+[ext_resource type="Script" uid="uid://b7yfrea0b2mwx" path="res://Scripts/survivors/damage_particles.gd" id="2_lgtbm"]
+
+[node name="DamageParticles" type="CPUParticles2D" unique_id=1535954977]
+modulate = Color(0.7593958, 0.19784397, 1.8289685e-06, 1)
+emitting = false
+amount = 16
+texture = ExtResource("1_q3aj4")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+randomness = 0.5
+direction = Vector2(0, -1)
+spread = 30.0
+gravity = Vector2(0, 1500)
+initial_velocity_min = 370.71
+initial_velocity_max = 401.87
+scale_amount_min = 0.1
+scale_amount_max = 0.2
+script = ExtResource("2_lgtbm")
+
+[connection signal="finished" from="." to="." method="_on_finished"]
