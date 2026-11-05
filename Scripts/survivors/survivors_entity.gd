@@ -56,5 +56,4 @@ func get_move_direction() -> Vector2:
 
 func attack(entity: SurvivorsEntity) -> void:
 	if dead: return
-	print("ouch!")
 	entity.take_damage(damage)

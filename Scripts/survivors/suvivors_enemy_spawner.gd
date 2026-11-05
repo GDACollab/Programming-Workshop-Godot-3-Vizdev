@@ -40,11 +40,9 @@ func _ready() -> void:
 
 func increment_enemy_count() -> void:
 	_enemy_count += 1
-	print("enemy count: ", str(_enemy_count))
 
 func decrement_enemy_count() -> void:
 	_enemy_count -= 1
-	print("enemy count: ", str(_enemy_count))
 
 func _process(_delta: float) -> void:
 	pass
