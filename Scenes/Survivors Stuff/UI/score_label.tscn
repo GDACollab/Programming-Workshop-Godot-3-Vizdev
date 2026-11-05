@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://5bjw2pu5r0sl"]
+
+[ext_resource type="Script" uid="uid://dc4nvtao2eq1i" path="res://Scripts/survivors/score_label.gd" id="1_ikynq"]
+
+[node name="ScoreLabel" type="Label" unique_id=1424290109]
+theme_override_font_sizes/font_size = 48
+horizontal_alignment = 1
+script = ExtResource("1_ikynq")
