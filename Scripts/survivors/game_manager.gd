@@ -2,7 +2,7 @@ extends Node
 var player: SurvivorsPlayer
 var score: int = 0
 
-signal on_score_change(float)
+signal on_score_change()
 
 func set_player(p: SurvivorsPlayer) -> void:
 	self.player = p
