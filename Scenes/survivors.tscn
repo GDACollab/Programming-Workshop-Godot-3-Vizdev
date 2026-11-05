@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://dolh33a6x4q4u" path="res://Scenes/Survivors Stuff/Entities/survivors_player.tscn" id="1_msi0f"]
 [ext_resource type="PackedScene" uid="uid://dextitj58fo3x" path="res://Scenes/Survivors Stuff/Entities/survivors_enemy_spawner.tscn" id="2_j5p33"]
-[ext_resource type="Script" uid="uid://dc4nvtao2eq1i" path="res://Scripts/survivors/score_label.gd" id="3_j5p33"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_l16ms"]
 
@@ -58,27 +57,3 @@ position = Vector2(960, 540)
 
 [node name="Survivors Enemy Spawner" parent="." unique_id=2074361075 instance=ExtResource("2_j5p33")]
 position = Vector2(960, 540)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=427560272]
-
-[node name="ScoreCounter" type="Control" parent="CanvasLayer" unique_id=726984127]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/ScoreCounter" unique_id=49770228]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="HeaderLabel" type="Label" parent="CanvasLayer/ScoreCounter/VBoxContainer" unique_id=583194806]
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "Score"
-
-[node name="ScoreLabel" type="Label" parent="CanvasLayer/ScoreCounter/VBoxContainer" unique_id=1803499220]
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-horizontal_alignment = 1
-script = ExtResource("3_j5p33")
